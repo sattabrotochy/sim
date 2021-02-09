@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "1083176012658",
+    "firebase_url": "https://syantaxive-default-rtdb.firebaseio.com",
+    "project_id": "syantaxive",
+    "storage_bucket": "syantaxive.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1083176012658:android:11eba1b9886dc05f80abeb",
+        "android_client_info": {
+          "package_name": "com.example.siminfoapp"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "1083176012658-hut4f57uhpu6mtjgastechnp89gt0os4.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDpyyVw0JS2KnIdOHgNx8OgBqAcgoDhsM4"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "1083176012658-hut4f57uhpu6mtjgastechnp89gt0os4.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
