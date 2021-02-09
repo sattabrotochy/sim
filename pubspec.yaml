@@ -24,21 +24,22 @@ environment:
 dependencies:
   flutter:
     sdk: flutter
-  carousel_pro: ^1.0.0
-  curved_navigation_bar: ^0.3.7
-  provider: ^4.3.3
-  fluttertoast: ^7.1.6
-  url_launcher: ^5.7.10
-  clipboard: ^0.1.2+8
-  flutter_share: ^1.0.5
-  share: ^0.6.5+4
-  cloud_firestore: ^0.16.0
-  firebase_core: ^0.7.0
-  firebase_auth: ^0.20.0+1
-  firebase_storage: ^7.0.0
-  firebase_database: ^6.0.0
-  firebase_admob: ^0.11.0+1
-  flutter_native_admob: ^2.1.0+3
+  carousel_pro:
+  curved_navigation_bar:
+  provider:
+  fluttertoast:
+  url_launcher:
+  clipboard:
+  flutter_share:
+  share:
+  cloud_firestore:
+  firebase_core:
+  firebase_auth:
+  firebase_storage:
+  firebase_database:
+  firebase_admob:
+  flutter_native_admob:
+
 #  firebase_admob: ^0.11.0+1
 #  flutter_native_admob: ^2.1.0+3
 

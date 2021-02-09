@@ -39,6 +39,7 @@ class _MyHomePageState extends State<MyHomePage> {
 
 
   List<DataModel> gpList = [];
+  List<DataModel> airtelList = [];
 
   int current_state;
   final GlobalKey _scaffoldKey = new GlobalKey();
@@ -75,7 +76,7 @@ class _MyHomePageState extends State<MyHomePage> {
                     launch("tel://" + number.toString());
                   });
                 },
-                child: Icon(Icons.call))
+                child: Icon(Icons.call,color: Colors.blueAccent,))
           ],
         ),
       ),
@@ -176,8 +177,14 @@ class _MyHomePageState extends State<MyHomePage> {
 
     MyProvider provider = Provider.of<MyProvider>(context);
 
+    /// get gp data list
     provider.getGpData();
     gpList = provider.throwGpList;
+
+    /// airtel data list
+
+    provider.getAirtelData();
+    airtelList=provider.throwaitelList;
 
    // print(gpList.length);
 
@@ -185,7 +192,7 @@ class _MyHomePageState extends State<MyHomePage> {
       drawer: drawer(),
       key: _scaffoldKey,
       bottomNavigationBar: CurvedNavigationBar(
-        backgroundColor: Colors.black26,
+        backgroundColor: Colors.black12,
         buttonBackgroundColor: Colors.white,
         height: 55,
         items: <Widget>[
@@ -444,7 +451,7 @@ class _MyHomePageState extends State<MyHomePage> {
                 ),
                 Expanded(
                   flex: 2,
-                  child: ListView.separated(
+                  child:(current_state==0)? ListView.separated(
                     shrinkWrap: true,
                     itemCount: gpList.length,
                     itemBuilder: (context, index) {
@@ -455,7 +462,9 @@ class _MyHomePageState extends State<MyHomePage> {
                               name: gpList[index].name,
                               number: gpList[index].number,
                             )
-                          : Center();
+                          : CircularProgressIndicator(
+                        backgroundColor: Colors.blueAccent,
+                      );
                     },
                     separatorBuilder: (context,index){
                       return index % 4==0?
@@ -475,11 +484,50 @@ class _MyHomePageState extends State<MyHomePage> {
                         name: gpList[index].name,
                         number: gpList[index].number,
                       )
-                          : Center();
+                          : CircularProgressIndicator();
                     },
 
 
-                  ),
+                  ):(current_state==1)?
+                  ListView.separated(
+                    shrinkWrap: true,
+                    itemCount: airtelList.length,
+                    itemBuilder: (context, index) {
+
+                      //print(gpList[index].name);
+                      return airtelList != null
+                          ? listItem(
+                        name: airtelList[index].name,
+                        number: airtelList[index].number,
+                      )
+                          : CircularProgressIndicator(
+                        backgroundColor: Colors.blueAccent,
+                      );
+                    },
+                    separatorBuilder: (context,index){
+                      return index % 4==0?
+                      Container(
+                          margin: EdgeInsets.symmetric(horizontal: 10,vertical: 10),
+                          height: 80,
+                          color: Colors.green,
+                          child: NativeAdmob(
+                            adUnitID: NativeAd.testAdUnitId,
+                            controller: _nativeAdController,
+                            type: NativeAdmobType.full,
+                            loading: Center(child: CircularProgressIndicator()),
+                            error: Text('failed to load'),
+                          )
+                      ):listItem(
+                        name: airtelList[index].name,
+                        number: airtelList[index].number
+                      );
+                    },
+
+                  ):(current_state==2)?
+
+                  ListView(
+
+                  ):(current_state==3),
                 ),
               ],
             ),
